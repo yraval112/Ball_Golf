@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6048058
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4898,7 +4898,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   rb: {fileID: 0}
-  shootForce: 20
+  shootForce: 15
   onLevelWin:
     m_PersistentCalls:
       m_Calls: []

@@ -5,9 +5,14 @@ using UnityEngine;
 public class ResultUI : MonoBehaviour
 {
     public GameObject bg;
+    void OnEnable()
+    {
+
+        GameManager.onLevelWin += ShowUI;
+    }
     void Awake()
     {
-        GameManager.onLevelWin += ShowUI;
+        bg = gameObject.transform.GetChild(0).gameObject;
     }
     void OnDestroy()
     {
@@ -15,7 +20,10 @@ public class ResultUI : MonoBehaviour
     }
     public void ShowUI()
     {
-        bg.SetActive(true);
+        if (bg != null)
+        {
+            bg.SetActive(true);
+        }
     }
     public void HideUI()
     {

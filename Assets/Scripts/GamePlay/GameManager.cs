@@ -19,19 +19,6 @@ public class GameManager : MonoBehaviour
     {
         onLevelWin += ShowResultUI;
         onGameOver += ShowGameOverUI;
-    }
-    private void Awake()
-    {
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
         if (cameraManager == null)
         {
             cameraManager = FindObjectOfType<CameraManager>();
@@ -45,17 +32,54 @@ public class GameManager : MonoBehaviour
             gameOverUI = FindObjectOfType<GameOverUI>();
         }
 
+    }
+    void OnDestroy()
+    {
+        onLevelWin -= ShowResultUI;
+        onGameOver -= ShowGameOverUI;
+    }
+    private void Awake()
+    {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+
 
     }
 
 
     public void ShowResultUI()
     {
-        resultUI.ShowUI();
+        // Refresh reference if it's null (happens when loading new scenes)
+        if (resultUI == null)
+        {
+            resultUI = FindObjectOfType<ResultUI>();
+        }
+
+        if (resultUI != null)
+        {
+            resultUI.ShowUI();
+        }
     }
 
     public void ShowGameOverUI()
     {
-        gameOverUI.gameObject.SetActive(true);
+        // Refresh reference if it's null (happens when loading new scenes)
+        if (gameOverUI == null)
+        {
+            gameOverUI = FindObjectOfType<GameOverUI>();
+        }
+
+        if (gameOverUI != null)
+        {
+            gameOverUI.gameObject.SetActive(true);
+        }
     }
 }

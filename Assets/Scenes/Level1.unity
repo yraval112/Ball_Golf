@@ -2665,10 +2665,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballTarget: {fileID: 456813619}
   cameraHeight: 5
-  followSpeed: 5
+  followSmoothTime: 0.08
   zoomSpeed: 2
   minZoom: 3
   maxZoom: 50
+  zoomSmoothTime: 0.15
 --- !u!1 &451607401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2902,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   rb: {fileID: 0}
-  shootForce: 20
+  shootForce: 15
   onLevelWin:
     m_PersistentCalls:
       m_Calls: []

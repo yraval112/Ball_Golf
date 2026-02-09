@@ -5,9 +5,14 @@ using UnityEngine;
 public class GameOverUI : MonoBehaviour
 {
     public GameObject bg;
-    void Awake()
+    void OnEnable()
     {
         GameManager.onGameOver += ShowUI;
+
+    }
+    void Awake()
+    {
+        bg = gameObject.transform.GetChild(0).gameObject;
     }
     void OnDestroy()
     {
