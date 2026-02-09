@@ -22,11 +22,30 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
 
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (cameraManager == null)
+        {
+            cameraManager = FindObjectOfType<CameraManager>();
+        }
+        if (resultUI == null)
+        {
+            resultUI = FindObjectOfType<ResultUI>();
+        }
+        if (gameOverUI == null)
+        {
+            gameOverUI = FindObjectOfType<GameOverUI>();
+        }
+
+
     }
 
 

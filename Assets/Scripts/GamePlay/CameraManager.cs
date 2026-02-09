@@ -5,14 +5,15 @@ public class CameraManager : MonoBehaviour
     public Transform ballTarget;
 
     [Header("Follow Settings")]
+    [Tooltip("Lower value = faster follow")]
     public float cameraHeight = 10f;
-    public float followSmoothTime = 0.2f;
+    public float followSmoothTime = 0.08f;
 
     [Header("Zoom Settings")]
     public float zoomSpeed = 4f;
     public float minZoom = 3f;
     public float maxZoom = 20f;
-    public float zoomSmoothTime = 0.2f;
+    public float zoomSmoothTime = 0.15f;
 
     private Camera cam;
 
@@ -48,7 +49,12 @@ public class CameraManager : MonoBehaviour
         if (ballTarget == null)
             return;
 
-        Vector3 targetPosition = ballTarget.position + Vector3.up * cameraHeight;
+        Vector3 targetPosition = new Vector3(
+            ballTarget.position.x,
+            ballTarget.position.y + cameraHeight,
+            ballTarget.position.z
+        );
+
         transform.position = Vector3.SmoothDamp(
             transform.position,
             targetPosition,

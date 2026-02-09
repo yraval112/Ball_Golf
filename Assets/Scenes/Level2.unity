@@ -11367,8 +11367,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 23.93841, y: 1, z: 1}
-  m_Center: {x: -6.2577333, y: 0, z: 0}
+  m_Size: {x: 8.921442, y: 1, z: 1}
+  m_Center: {x: -0.4197781, y: 0, z: -0.000012211265}
 --- !u!1 &1089578408
 GameObject:
   m_ObjectHideFlags: 0
@@ -22903,10 +22903,10 @@ SceneRoots:
   - {fileID: 1555338572}
   - {fileID: 197028178}
   - {fileID: 415502442}
+  - {fileID: 289878273}
   - {fileID: 1701284207}
   - {fileID: 456813619}
   - {fileID: 1671319822}
   - {fileID: 498987579}
   - {fileID: 1283688924}
-  - {fileID: 289878273}
   - {fileID: 1345376248}
